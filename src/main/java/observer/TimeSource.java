@@ -7,5 +7,7 @@ package observer;
  * Time: 上午7:58
  * To change this template use File | Settings | File Templates.
  */
-public class TimeSource {
+public interface TimeSource {
+    public void setDriver(ClockDriver driver);
 }
+

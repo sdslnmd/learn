@@ -1,7 +1,8 @@
 *.class
 out/
-.idea/
+.idea/*
 idea/
-\.idea/
+\.idea/*
 *.iml
 .DS_Store
+learn.iml
