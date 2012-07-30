@@ -1,3 +1,5 @@
+package sinaleton;
+
 /**
  */
 public class Monostate {

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="ZipFile">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/openSource/openjdk-6-src-b25-01_may_2012/jdk/test/java/util/zip/ZipFile/crash.jar!/" />
+      <root url="jar://$USER_HOME$/openSource/openjdk-6-src-b25-01_may_2012/jdk/test/java/util/zip/ZipFile/input.jar!/" />
+      <root url="jar://$USER_HOME$/openSource/openjdk-6-src-b25-01_may_2012/jdk/test/java/util/zip/ZipFile/input.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

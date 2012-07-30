@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="JarFile">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/openSource/openjdk-6-src-b25-01_may_2012/jdk/test/java/util/jar/JarFile/test.jar!/" />
+      <root url="jar://$USER_HOME$/openSource/openjdk-6-src-b25-01_may_2012/jdk/test/java/util/jar/JarFile/bogus-signerinfo-attr.jar!/" />
+      <root url="jar://$USER_HOME$/openSource/openjdk-6-src-b25-01_may_2012/jdk/test/java/util/jar/JarFile/Signed.jar!/" />
+      <root url="jar://$USER_HOME$/openSource/openjdk-6-src-b25-01_may_2012/jdk/test/java/util/jar/JarFile/thawjar.jar!/" />
+      <root url="jar://$USER_HOME$/openSource/openjdk-6-src-b25-01_may_2012/jdk/test/java/util/jar/JarFile/no-manifest.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
