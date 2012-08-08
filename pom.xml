@@ -10,7 +10,7 @@
     <version>1.0</version>
     <modules>
         <module>nio</module>
-        <module>degingn</module>
+        <module>design</module>
     </modules>
     <dependencies>
         <dependency>
