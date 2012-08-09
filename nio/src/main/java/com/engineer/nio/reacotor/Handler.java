@@ -1,4 +1,4 @@
-package nio.reacotor;
+package com.engineer.nio.reacotor;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -17,19 +17,40 @@ final class Handler implements Runnable {
     final SocketChannel socket;
     final SelectionKey sk;
 
-    ByteBuffer.allocate(1024);
+    ByteBuffer input= ByteBuffer.allocate(1024);
+    ByteBuffer output= ByteBuffer.allocate(1024);
+
+//    ByteBuffer.
+    static final int READING =0,SENDING=1;
+    int state=READING;
 
     Handler(Selector sel, SocketChannel c) throws IOException {
         socket = c;
         c.configureBlocking(false);
+        //Optionallly try first read now
         sk = socket.register(sel, 0);
         sk.attach(this);
-
-        //Optionallly try first read now
+        sk.interestOps(SelectionKey.OP_READ);
+        sel.wakeup();
     }
+    boolean inputIsComplete(){return true;}
+    boolean outputIsComplete(){return true;}
+    void process(){};
 
     @Override
     public void run() {
+        try {
+            if(state==READING) {
+                read();
+            }else if (state == SENDING) {
+                send();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
+    void read() throws IOException{
+        socket.read(input);
     }
 }
