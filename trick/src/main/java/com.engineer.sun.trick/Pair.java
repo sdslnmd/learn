@@ -1,4 +1,4 @@
-package test;
+package com.engineer.sun.trick;
 
 public class Pair<T, S> {
         private T first;
