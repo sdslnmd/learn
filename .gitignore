@@ -6,3 +6,6 @@ idea/
 *.iml
 .DS_Store
 learn.iml
+*.ipr
+*.iws
+*/target/
