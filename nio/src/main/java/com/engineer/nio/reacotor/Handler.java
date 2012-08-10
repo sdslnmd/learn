@@ -53,4 +53,7 @@ final class Handler implements Runnable {
     void read() throws IOException{
         socket.read(input);
     }
+    void send() throws IOException {
+
+    }
 }
