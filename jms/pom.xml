@@ -4,23 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>learn</groupId>
-    <artifactId>learn</artifactId>
-    <packaging>pom</packaging>
+    <groupId>jms</groupId>
+    <artifactId>jms</artifactId>
     <version>1.0</version>
-    <modules>
-        <module>nio</module>
-        <module>design</module>
-        <module>pojo</module>
-        <module>pojo</module>
-    </modules>
+
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.3</version>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>5.6.0</version>
         </dependency>
     </dependencies>
-
 
 </project>
