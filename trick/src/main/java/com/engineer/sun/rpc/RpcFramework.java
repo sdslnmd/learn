@@ -86,7 +86,7 @@ public static void export(final Object service, int port) throws Exception {
 * @throws Exception
 */
 @SuppressWarnings("unchecked")
-public static<T> T refer(final Class<T>  interfaceClass, final String host, final int port) throws Exception {
+public static <T>T refer(final Class<T>  interfaceClass, final String host, final int port) throws Exception {
 	if (interfaceClass == null)
 		throw new IllegalArgumentException("Interface class == null");
 	if (! interfaceClass.isInterface())
