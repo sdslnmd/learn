@@ -86,7 +86,7 @@ public static void export(final Object service, int port) throws Exception {
 * @throws Exception
 */
 @SuppressWarnings("unchecked")
-public static Object refer(final Class interfaceClass, final String host, final int port) throws Exception {
+public static<T> T refer(final Class<T>  interfaceClass, final String host, final int port) throws Exception {
 	if (interfaceClass == null)
 		throw new IllegalArgumentException("Interface class == null");
 	if (! interfaceClass.isInterface())
@@ -96,7 +96,7 @@ public static Object refer(final Class interfaceClass, final String host, final 
 	if (port == 65535)
 		throw new IllegalArgumentException("Invalid port " + port);
 	System.out.println("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
-	return (Object) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[] {interfaceClass}, new InvocationHandler() {
+	return (T)Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[] {interfaceClass}, new InvocationHandler() {
 		public Object invoke(Object proxy, Method method, Object[] arguments) throws Throwable {
 			Socket socket = new Socket(host, port);
 			try {

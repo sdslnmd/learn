@@ -14,6 +14,7 @@ public class Main {
         String url = "http://hessian.caucho.com/test/test";
 
         HessianProxyFactory factory = new HessianProxyFactory();
+
         BasicAPI basic = (BasicAPI) factory.create(BasicAPI.class, url);
 
         System.out.println("hello(): " + basic.hello());
