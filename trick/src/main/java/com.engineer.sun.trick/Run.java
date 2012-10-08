@@ -1,4 +1,6 @@
-package test;
+package com.engineer.sun.trick;
+
+import com.engineer.sun.trick.Pair;
 
 /**
  * Created with IntelliJ IDEA.
