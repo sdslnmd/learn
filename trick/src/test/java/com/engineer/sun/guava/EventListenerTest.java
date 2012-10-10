@@ -28,5 +28,22 @@ public class EventListenerTest {
         assertThat(listener.getLastMessage(), Is.is(200));
     }
 
+    @Test
+    public void shouldReceiveMultipleEvents() throws Exception {
+
+        // given
+        EventBus eventBus = new EventBus("test");
+        MultipleListener multiListener = new MultipleListener();
+
+        eventBus.register(multiListener);
+
+        // when
+        eventBus.post(new Integer(100));
+        eventBus.post(new Long(800));
+
+        // then
+        assertThat(multiListener.getLastInteger(),Is.is(100));
+        assertThat(multiListener.getLastLong(),Is.is(800L));
+    }
 
 }
