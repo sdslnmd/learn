@@ -38,7 +38,7 @@ enum PersonComparator implements Comparator<Person> {
             public int compare(Person o1, Person o2) {
                 for (PersonComparator option : multipleOptions) {
                     int result = option.compare(o1, o2);
-                    if (result != 0) {
+                    if (result != 0) {//如果不相等则返回，相等则利用下一个compare继续比较；
                         return result;
                     }
                 }
