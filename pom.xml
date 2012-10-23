@@ -12,7 +12,6 @@
         <module>nio</module>
         <module>design</module>
         <module>pojo</module>
-        <module>pojo</module>
         <module>pipeComet</module>
     </modules>
     <dependencies>
