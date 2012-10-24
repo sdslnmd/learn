@@ -5,6 +5,9 @@ import java.util.List;
 
 class Gerneric<S> {
 
+    public static <V> Gerneric<V> make() {
+        return new Gerneric<V>();
+    }
     /**
      * 实例方法可以调用类定义中的形式类型参数
      * @param key
@@ -28,5 +31,6 @@ class Gerneric<S> {
 
     public static void main(String[] args) {
         Gerneric<String> stringUtilities = new Gerneric<String>();
+        Gerneric<String> make = Gerneric.make();
     }
 }
