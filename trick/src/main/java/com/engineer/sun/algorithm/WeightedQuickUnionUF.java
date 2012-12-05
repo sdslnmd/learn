@@ -44,10 +44,10 @@ public class WeightedQuickUnionUF {
         if(i==j) return;
         //将小树的根节点连接到大树的根节点
         if (sz[i] < sz[j]) {
-            id[i] = j;
+            id[i] = j;//链表结构
             sz[j] += sz[i];
         } else {
-            id[j] = i;
+            id[j] = i;//全是同一个数
             sz[i] += sz[j];
         }
 
@@ -56,12 +56,12 @@ public class WeightedQuickUnionUF {
 
     public static void main(String[] args) {
         WeightedQuickUnionUF uf = new WeightedQuickUnionUF(10);
-        uf.union(7,5);
-        uf.union(7,6);
-        uf.union(7,8);
+        uf.union(0,1);
+        uf.union(0,2);
+        uf.union(0,3);
 
-        uf.union(3, 1);
-        uf.union(2, 1);
+//        uf.union(3, 2);
+//        uf.union(2, 2);
 
 
 
