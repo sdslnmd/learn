@@ -13,6 +13,7 @@
         <module>design</module>
         <module>pojo</module>
         <module>spring</module>
+        <module>trick</module>
     </modules>
     <dependencies>
         <dependency>
