@@ -16,23 +16,20 @@ public class OrdingTest {
     public static void main(String[] args) {
 
         Person e2 = new Person(2, "shanghai", "shanghia");
-
-        ImmutableList<Person> of = ImmutableList.of(new Person(1, "beijing", "bj"), e2);
-        ArrayList<Person> persons = Lists.newArrayList(of);
+        ArrayList<Person> persons = Lists.newArrayList(new Person(1, "beijing", "bj"), e2);
 
         Collections.sort(persons, new Comparator<Person>() {
             @Override
             public int compare(Person o1, Person o2) {
                 return ComparisonChain.start()
-                        .compareTrueFirst(o1.city.equals("shanghai"), o2.city.equals("shanghai"))
+                        //自定义排序顺序
+                        .compareTrueFirst(o1.city.equals("beijing"), o2.city.equals("beijing"))
                         .compare(o1.age, o2.age)
                         .result();
             }
         });
 
-
-        System.out.println(of);
-
+        System.out.println(persons);
     }
 
     private static class Person {
