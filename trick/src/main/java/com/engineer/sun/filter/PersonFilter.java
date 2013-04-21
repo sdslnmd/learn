@@ -11,14 +11,14 @@ public enum PersonFilter implements Filter<Person> {
     nameFilter {
         @Override
         public boolean isFilter(Person s) {
-            return false;
+            return "name".equals(s.getName());
         }
     },
 
     ageFilter {
         @Override
         public boolean isFilter(Person s) {
-            return false;
+            return 12 == s.getAge();
         }
     }
 }
