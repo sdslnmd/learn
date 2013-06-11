@@ -59,7 +59,7 @@ public class BProfiler {
 	/**
 	 * <p>需要纳入侦测点的范围（类）</p>
 	 */
-	private static final String PROFILER_RANGE_CLAZZ = "/com\\.taobao\\.item\\.(service|manager|dao|domain|util|search|checkstep).*/";
+	private static final String PROFILER_RANGE_CLAZZ = "/com\\.zuche\\.item\\.(service|manager|dao|domain|util|search|checkstep).*/";
 	
 	/**
 	 * <p>需要纳入侦测点的范围（方法）</p>
