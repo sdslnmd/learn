@@ -14,6 +14,7 @@
         <module>pojo</module>
         <module>spring</module>
         <module>trick</module>
+        <module>btrace</module>
     </modules>
     <dependencies>
         <dependency>

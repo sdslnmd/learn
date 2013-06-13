@@ -11,6 +11,16 @@ public class Person {
     private int id;
     private String name, address;
 
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public String getAddress() {
         return address;
     }

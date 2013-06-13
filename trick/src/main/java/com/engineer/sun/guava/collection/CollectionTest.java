@@ -1,7 +1,12 @@
 package com.engineer.sun.guava.collection;
 
+import com.engineer.sun.guava.function.Person;
 import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Table;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: sunluning
@@ -18,5 +23,10 @@ public class CollectionTest {
 
         System.out.println(table.row(1));
         System.out.println(table.get(1, 2));
+
+
+        ArrayList<Person> persons = Lists.newArrayList(new Person(12, "12"), new Person(1, "1"), new Person(2, "2"), new Person(2, "2"));
+        List<List<Person>> partition = Lists.partition(persons, 2);
+        System.out.println(partition);
     }
 }
