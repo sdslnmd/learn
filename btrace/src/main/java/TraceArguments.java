@@ -1,19 +1,32 @@
-import static com.sun.btrace.BTraceUtils.*;
 import com.sun.btrace.annotations.*;
+
+import static com.sun.btrace.BTraceUtils.*;
 
 @BTrace
 public class TraceArguments {
-    @OnMethod(
-            clazz = "/com\\.mkyong\\..*/",
-            method = "/.*/",
-            location = @Location(value = Kind.RETURN,clazz = "/.*calc.*/",method = "/.*/")
+    /*@OnMethod(
+            clazz = "/com\\.mkyong\\..*//*",
+            method = "/.*//*",
+            location = @Location(value = Kind.CALL, clazz = "/.*//*", method = "/.*//*")
     )
-    /*
-      参数的顺序需要和监控的方法名一样
-      @result需配置 kind.RETURN一起使用
-    * */
-    public static void t(String name,@Return String result) {
-        println(strcat("args = ", name));
-        println(strcat("re = ", result));
+    public static void t(@TargetInstance Object ins, @TargetMethodOrField String target, @ProbeClassName String classname, AnyType[] anyTypes) {
+        println(strcat(classname, "call ====="));
+        print(strcat("instance == ",Reflective.name(Reflective.classOf(ins))));
+        println(strcat("targe  ", target));
+        printArray(anyTypes);
+    }*/
+
+    @OnMethod(
+            clazz="/com\\.mkyong\\..*/",
+            method="/.*/",
+            location = @Location(value = Kind.CALL)
+    )
+    public static void m(@TargetInstance Object ins, @TargetMethodOrField String target,@ProbeClassName String probeClass, @ProbeMethodName String probeMethod) {
+        print(strcat("instance  ",Reflective.name(Reflective.classOf(ins))));
+        println(strcat(".",target));
+
+        print(Strings.strcat("entered ", probeClass));
+        println(Strings.strcat(".", probeMethod));
     }
+
 }
