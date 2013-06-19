@@ -9,8 +9,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class MutliAviaterFilterTest {
 
-
-
     @Test
     public void test_simple() {
         int count = 15;
@@ -50,7 +48,7 @@ public class MutliAviaterFilterTest {
 
     private void test() {
         SingletonCurrent instance = SingletonCurrent.getInstance();
-        instance.add("a");
+        instance.add("c");
     }
 
 }  
