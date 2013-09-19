@@ -2,6 +2,7 @@ package com.zuche.concurrent;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * User: sunluning
@@ -11,7 +12,7 @@ public class SingletonCurrent {
     private static final SingletonCurrent t = new SingletonCurrent();
 
     private List<String> list;
-    private List<String> list2;
+    private List<String> list2 ;
 
     private SingletonCurrent() {
     }
@@ -20,7 +21,7 @@ public class SingletonCurrent {
         return t;
     }
 
-    public void add(String a) {
+    public  void add(String a) {
 
         list = new LinkedList<String>();
         list2 = new LinkedList<String>();
@@ -38,6 +39,11 @@ public class SingletonCurrent {
 
 
         System.out.println(Thread.currentThread().getName()+"==="+c);
+    }
+
+    public static void main(String[] args) {
+        SingletonCurrent instance = SingletonCurrent.getInstance();
+        instance.add("c");
     }
 
 }

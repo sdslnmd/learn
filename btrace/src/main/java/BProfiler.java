@@ -32,13 +32,15 @@ import com.sun.btrace.annotations.TLS;
 @BTrace
 public class BProfiler {
 
-	private static final String PROFILER_TAG_CLAZZ = "/com\\.spring\\..*/";
+    //com.zuche.common.inventory.calculate
+
+	private static final String PROFILER_TAG_CLAZZ = "/.*inventory.*/";
 
 	private static final String PROFILER_TAG_METHOD = "/.*/";
 
 	private static final int MAX_DEEP = 30;
 
-	private static final String PROFILER_RANGE_CLAZZ = "/com\\.spring\\..*/";
+	private static final String PROFILER_RANGE_CLAZZ = "/com\\.zuche\\.common\\..*/";
 
 	private static final String PROFILER_RANGE_METHOD = "/.*/";
 

@@ -11,7 +11,7 @@ public class MutliAviaterFilterTest {
 
     @Test
     public void test_simple() {
-        int count = 15;
+        int count = 60;
 
         ExecutorService executor = Executors.newFixedThreadPool(count);
 
@@ -23,11 +23,11 @@ public class MutliAviaterFilterTest {
                 public void run() {
                     try {
                         for (int i = 0; i < 100; i++) {
-                            try {
-                                test();
-                            } catch (Exception e) {
-                                System.out.println(e);
-                            }
+                        }
+                        try {
+                            test();
+                        } catch (Exception e) {
+                            System.out.println(e);
                         }
                         successed.incrementAndGet();
                     } finally {
