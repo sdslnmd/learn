@@ -1,32 +1,21 @@
+import com.mkyong.common.controller.obj.Name;
 import com.sun.btrace.annotations.*;
 
 import static com.sun.btrace.BTraceUtils.*;
 
 @BTrace
 public class TraceArguments {
-    /*@OnMethod(
-            clazz = "/com\\.mkyong\\..*//*",
-            method = "/.*//*",
-            location = @Location(value = Kind.CALL, clazz = "/.*//*", method = "/.*//*")
-    )
-    public static void t(@TargetInstance Object ins, @TargetMethodOrField String target, @ProbeClassName String classname, AnyType[] anyTypes) {
-        println(strcat(classname, "call ====="));
-        print(strcat("instance == ",Reflective.name(Reflective.classOf(ins))));
-        println(strcat("targe  ", target));
-        printArray(anyTypes);
-    }*/
 
     @OnMethod(
-            clazz="/com\\.mkyong\\..*/",
-            method="/.*/",
-            location = @Location(value = Kind.CALL)
+            clazz = "com.mkyong.common.controller.obj.NameProcess",
+            method = "process"
+            ,location = @Location(Kind.RETURN)
     )
-    public static void m(@TargetInstance Object ins, @TargetMethodOrField String target,@ProbeClassName String probeClass, @ProbeMethodName String probeMethod) {
-        print(strcat("instance  ",Reflective.name(Reflective.classOf(ins))));
-        println(strcat(".",target));
+    public static void m(@ProbeMethodName String me,@Return Name re,Name name) {
 
-        print(Strings.strcat("entered ", probeClass));
-        println(Strings.strcat(".", probeMethod));
+        println(get(field("com.mkyong.common.controller.obj.Name", "name"), re));
+        println(get(field("com.mkyong.common.controller.obj.Name", "name"), name));
+
     }
 
 }
