@@ -11,7 +11,7 @@
     <modules>
         <module>nio</module>
         <module>design</module>
-        <module>pojo</module>
+        <module>concurrrent</module>
         <module>spring</module>
         <module>trick</module>
         <module>btrace</module>
