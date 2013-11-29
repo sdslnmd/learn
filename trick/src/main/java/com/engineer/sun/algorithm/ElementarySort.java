@@ -29,7 +29,7 @@ public class ElementarySort {
     }
 
     public static void main(String[] args) {
-        int[] source = {3,1,2};
+        int[] source = {7,3,5,9,1};
 
         print(source);
 
