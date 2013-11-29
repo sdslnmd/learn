@@ -3,18 +3,19 @@ package com.engineer.sun.algorithm;
 public class ElementarySort {
 
     static void selectSort(int[] source) {
-        for (int i = 0; i < source.length-1; i++) {
+        for (int i = 0; i < source.length; i++) {
             int min = i;
             for (int j = i + 1; j < source.length; j++) {
                 if (source[j] < source[min]) {
+                    //找到i之后元素的中的最小元素 然后i和min交换位置
+                    //这样i之前就都是排过序的元素
                     min = j;
                 }
             }
-            if (min != i) {
-                int tmp = source[i];
-                source[i] = source[min];
-                source[min] = tmp;
-            }
+
+            int tmp = source[i];
+            source[i] = source[min];
+            source[min] = tmp;
 
             print(source);
 
@@ -29,7 +30,7 @@ public class ElementarySort {
     }
 
     public static void main(String[] args) {
-        int[] source = {7,3,5,9,1};
+        int[] source = {7, 3, 5, 2, 1};
 
         print(source);
 
