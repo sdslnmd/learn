@@ -1,5 +1,9 @@
 package com.engineer.sun.algorithm;
 
+/**
+ * 可视化排序算法
+ * http://www.sorting-algorithms.com/
+ */
 public class ElementarySort {
 
     static void selectSort(int[] source) {
