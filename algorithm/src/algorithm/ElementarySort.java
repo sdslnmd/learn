@@ -73,8 +73,6 @@ public class ElementarySort {
 
     public static void main(String[] args) {
         int[] source = {7, 3, 5, 2};
-//        int[] source = {7, 3};
-
         print(source);
 
         shellSort(source);
