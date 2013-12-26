@@ -1,6 +1,6 @@
 package algorithm;
 
-public class Sort {
+public class QuickSort {
     public static void qsort(int[] a, int start, int end) {
 
         System.out.println("start=" + start + " end=" + end);
