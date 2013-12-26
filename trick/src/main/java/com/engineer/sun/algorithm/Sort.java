@@ -1,11 +1,5 @@
 package com.engineer.sun.algorithm;
 
-import com.google.common.collect.Collections2;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
-
-import java.util.Collections;
-
 public class Sort {
     public static void qsort(int[] a, int start, int end) {
 
