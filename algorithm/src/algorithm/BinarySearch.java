@@ -21,25 +21,29 @@ public class BinarySearch {
         return -1;
     }
 
-    public static int search(int val, int[] source) {
-        int i = 0, j = source.length - 1;
-        while (i <= j) {
-            int m = i + (j - i) / 2;
-            if (source[m] == val) {
-                return m;
-            }
-            if (source[m] > val) {
-                j = m - 1;
-            } else {
-                i = m + 1;
-            }
+
+    public static int search_recurse(int value, int[] source, int low, int high) {
+
+        int mid = low+(high - low) / 2;
+
+        if (value < source[mid]) {
+            return search_recurse(value, source, low, mid - 1);
         }
+        if (value > source[mid]) {
+            return search_recurse(value, source, mid + 1, high);
+        }
+        if (value == source[mid]) {
+            return mid;
+        }
+
         return -1;
+
     }
 
 
     public static void main(String[] args) {
-        System.out.println(search(8, new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}));
+        int[] source = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        System.out.println(search_recurse(8, source, 0, source.length));
     }
 
 }
