@@ -1,8 +1,7 @@
-package com.zuche.concurrent;
+package thread;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * User: sunluning

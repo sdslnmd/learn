@@ -1,4 +1,4 @@
-import com.zuche.concurrent.SingletonCurrent;
+import thread.SingletonCurrent;
 import org.junit.Assert;
 import org.junit.Test;
 
