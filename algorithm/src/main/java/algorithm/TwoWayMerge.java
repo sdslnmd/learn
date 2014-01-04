@@ -3,8 +3,8 @@ package algorithm;
 public class TwoWayMerge {
 
     public static void main(String[] args) {
-        int[] a = {5, 3, 1};
-        int[] b = {6, 4};
+        int[] a = {1, 4};
+        int[] b = {2, 3};
 
         int[] ints = two_way_merge(a, b);
 
@@ -21,14 +21,14 @@ public class TwoWayMerge {
         int k = 0;
 
         while (i < a.length && j < b.length) {
-            if (a[i] > b[j]) {
+            if (a[i] <= b[j]) {
                 re[k++] = a[i++];
             } else {
                 re[k++] = b[j++];
             }
         }
 
-        while (i<a.length) {
+        while (i < a.length) {
             re[k++] = a[i++];
         }
         while (j < b.length) {
