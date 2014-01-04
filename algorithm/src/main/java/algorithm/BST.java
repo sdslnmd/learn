@@ -71,7 +71,7 @@ public class BST {
         bst.put(12, 12);
         bst.put(4, 4);
 
-        int i = bst.get(4);
+        int i = bst.size();
         System.out.println(i);
 
     }
