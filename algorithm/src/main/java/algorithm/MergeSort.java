@@ -10,6 +10,7 @@ public class MergeSort {
     }
 
     private static void sort(int[] a, int lo, int hi) {
+        System.out.println("sort "+"lo=" + lo + " hi=" + hi);
         if (hi <= lo) return;
         int mid = lo + (hi - lo) / 2;
         sort(a, lo, mid);
@@ -18,6 +19,7 @@ public class MergeSort {
     }
 
     private static void merge(int[] a, int lo, int mid, int hi) {
+        System.out.println("merge "+"lo=" + lo + " hi=" + hi);
         int left = lo, right = mid + 1;
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];

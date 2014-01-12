@@ -22,7 +22,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] a = {0,3,1,2};
+        int[] a = {4, 5, 3, 2, 1};
 
         for (int i : a) {
             System.out.print(i + ",");
