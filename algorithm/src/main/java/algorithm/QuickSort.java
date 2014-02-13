@@ -18,7 +18,7 @@ public class QuickSort {
             }
         }
         if (left < end) qsort(a, left, end);
-        if (right > start) qsort(a, start, right);
+        if (start < right) qsort(a, start, right);
     }
 
     public static void main(String[] args) {
