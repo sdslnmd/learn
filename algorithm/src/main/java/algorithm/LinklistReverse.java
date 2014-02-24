@@ -1,4 +1,4 @@
-package algorithm.string;
+package algorithm;
 
 public class LinklistReverse {
 
