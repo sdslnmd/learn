@@ -16,6 +16,7 @@
         <module>trick</module>
         <module>btrace</module>
         <module>jms</module>
+        <module>concurrrent</module>
     </modules>
     <dependencies>
         <dependency>
