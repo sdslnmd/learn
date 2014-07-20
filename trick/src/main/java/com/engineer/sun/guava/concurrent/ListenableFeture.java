@@ -1,15 +1,14 @@
 package com.engineer.sun.guava.concurrent;
 
-import com.google.common.base.Function;
+import com.google.common.base.Stopwatch;
 import com.google.common.collect.Lists;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.ListeningExecutorService;
-import com.google.common.util.concurrent.MoreExecutors;
+import com.google.common.util.concurrent.*;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * User: sunluning
@@ -18,31 +17,55 @@ import java.util.concurrent.Executors;
 public class ListenableFeture {
     public static void main(String[] args) {
 
+        Stopwatch started = Stopwatch.createStarted();
 
-        Function<String, String> parseFun = new Function<String, String>() {
-            @Override
-            public String apply(String contents) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        ExecutorService cachedThreadPool = Executors.newCachedThreadPool(new ThreadFactoryBuilder().setNameFormat("test-%d").build());
+        ListeningExecutorService listeningExecutorService = MoreExecutors.listeningDecorator(cachedThreadPool);
+
+        List<ListenableFuture<String>> listenableFetures = Lists.newArrayList();
+
+        for (int i = 0; i < 10; i++) {
+            ListenableFuture<String> submit = listeningExecutorService.submit(new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    Thread.sleep(2000);
+                    return Thread.currentThread().getName();
                 }
-                String s = contents.toLowerCase();
-                System.out.println(s);
-                return s;
-            }
-        };
-        final ListeningExecutorService pool = MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(10));
-        ArrayList<String> strings = Lists.newArrayList("a", "b", "c", "d", "e");
-        final ListenableFuture<String> future = pool.submit(new Callable<String>() {
+            });
+
+            listenableFetures.add(submit);
+//            submit.addListener(new Runnable() {
+//                @Override
+//                public void run() {
+//                    System.out.println(Thread.currentThread().getName() + "done");
+//                }
+//            }, MoreExecutors.sameThreadExecutor());
+        }
+
+
+        ListenableFuture<List<String>> listListenableFuture = Futures.allAsList(listenableFetures);
+
+        Futures.addCallback(listListenableFuture,new FutureCallback<List<String>>() {
             @Override
-            public String call() throws Exception {
-                return null;
+            public void onSuccess(List<String> result) {
+                System.out.println("hahha");
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+
             }
         });
 
-        Futures.transform(future, parseFun);
-    }
 
+        listeningExecutorService.shutdown();
+        try {
+            listeningExecutorService.awaitTermination(20, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(started.stop().toString());
+    }
 
 }
