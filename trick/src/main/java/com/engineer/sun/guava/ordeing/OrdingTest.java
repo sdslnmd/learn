@@ -7,6 +7,7 @@ import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 /**
  * User: sunluning
@@ -14,6 +15,15 @@ import java.util.Comparator;
  */
 public class OrdingTest {
     public static void main(String[] args) {
+
+
+        List<Integer> integers = Lists.newArrayList();
+
+        Collections.max(integers);
+
+        System.out.println(integers);
+
+
 
         Person e2 = new Person(2, "shanghai", "shanghia");
         ArrayList<Person> persons = Lists.newArrayList(new Person(1, "beijing", "bj"), e2);

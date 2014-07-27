@@ -10,17 +10,10 @@ import java.util.concurrent.Executors;
 
 public class NodeDotJS {
 
-    //pool for execute blocking actions
-
     private ExecutorService mailbox = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder().setNameFormat("mailbox-%d").build());
+    //pool for execute blocking actions
     private ExecutorService forBlocker = Executors.newCachedThreadPool(new ThreadFactoryBuilder().setNameFormat("pool-%d").build());
-//    private ExecutorService mailbox;
-//    private ExecutorService forBlocker;
 
-//    public NodeDotJS(ExecutorService mailbox, ExecutorService forBlocker) {
-//        this.mailbox = mailbox;
-//        this.forBlocker = forBlocker;
-//    }
 
     //public method to receive request for outside
     public void receiveRequest(final Object req) {
@@ -46,7 +39,7 @@ public class NodeDotJS {
             public void run() {
                 //do blocking call ~~~~~~
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(10000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -62,30 +55,22 @@ public class NodeDotJS {
                     }
                 });
 
-
             }
         });
-
     }
 
     public static void main(String[] args) throws InterruptedException {
+
         ExecutorService mailbox = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder().setNameFormat("mailbox-%d").build());
         ExecutorService forBlocker = Executors.newCachedThreadPool(new ThreadFactoryBuilder().setNameFormat("pool-%d").build());
-//        NodeDotJS nodeDotJS = new NodeDotJS(mailbox, forBlocker);
-
 
         Stopwatch started = Stopwatch.createStarted();
         NodeDotJS nodeDotJS = new NodeDotJS();
-        nodeDotJS.receiveRequest("sdf");
-//
-//        mailbox.shutdown();
-//        forBlocker.shutdown();
-//        mailbox.awaitTermination(1, TimeUnit.DAYS);
-//        forBlocker.awaitTermination(1, TimeUnit.DAYS);
-
+        for (int i = 0; i < 100; i++) {
+            nodeDotJS.receiveRequest("sdf");
+        }
 
         System.out.println(started.stop());
-
     }
 
 }
